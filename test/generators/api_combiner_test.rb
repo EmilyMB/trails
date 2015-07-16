@@ -2,7 +2,7 @@ require "test_helper"
 
 class ApiCombinerTest < ActiveSupport::TestCase
   def test_it_returns_species_for_lat_lng
-    trail = Trail.create(id: 1,
+    trail = Trail.create(id: 198341,
                          name: "Indian Falls Trail (Alabama)",
                          city: "Fort Payne",
                          state: "Alabama",
@@ -15,6 +15,7 @@ class ApiCombinerTest < ActiveSupport::TestCase
                          updated_at: "2015-04-07 20:14:51",
                          unique_id: 6039)
     VCR.use_cassette("api_combiner_recording") do
+      assert_equal 0, Species.count
       ApiCombiner.get_species(trail.id)
 
       assert_equal 20, Species.count

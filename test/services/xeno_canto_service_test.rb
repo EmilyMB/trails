@@ -14,7 +14,7 @@ class XenoCantoServiceTest < ActiveSupport::TestCase
 
       assert_equal "216519", first_recording["id"]
       assert_equal "Columbina", first_recording["gen"]
-      assert_equal 8, recordings.length
+      assert_equal 10, recordings.length
     end
   end
 
@@ -28,7 +28,7 @@ class XenoCantoServiceTest < ActiveSupport::TestCase
   test "recording by species" do
     VCR.use_cassette("xeno_canto_service_species_recordings") do
       recording = service.species_recording("troglodytes troglodytes")
-      assert_equal "http://www.xeno-canto.org/233278/download", recording
+      assert_equal "http://www.xeno-canto.org/255877/download", recording
     end
   end
 

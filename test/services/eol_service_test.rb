@@ -19,7 +19,7 @@ class EolServiceTest < ActiveSupport::TestCase
     VCR.use_cassette("eol_service_image_recordings") do
       image_url = service.image(1150165)
 
-      assert_equal "http://media.eol.org/content/2013/02/26/04/10055_orig.jpg",
+      assert_equal "http://160.111.248.28/content/2013/02/26/04/10055_orig.jpg",
                    image_url
     end
   end
@@ -28,7 +28,7 @@ class EolServiceTest < ActiveSupport::TestCase
     VCR.use_cassette("eol_service_image_from_species_recordings") do
       image_url = service.image_from_species("Sideroxylon", "foetidissimum")
 
-      assert_equal "http://media.eol.org/content/2013/02/26/04/10055_orig.jpg",
+      assert_equal "http://160.111.248.28/content/2013/02/26/04/10055_orig.jpg",
                    image_url
     end
   end
